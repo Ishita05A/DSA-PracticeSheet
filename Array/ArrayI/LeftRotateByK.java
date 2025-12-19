@@ -20,8 +20,8 @@ public class LeftRotateByK {
     static void leftRotateByk(int[] arr,int k){
         int n = arr.length;
         k = k%n;
-        reverse(arr, 0, n-k);
-        reverse(arr, n-k+1, n-1);
+        reverse(arr, 0, k-1);
+        reverse(arr, k, n-1);
         reverse(arr, 0, n-1);
     }
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class LeftRotateByK {
         for(int i = 0;i<n;i++){
             arr[i] = sc.nextInt();
         }
-        leftRotateByk(arr, 3);
+        leftRotateByk(arr, 2);
         display(arr);
         sc.close();
     }
