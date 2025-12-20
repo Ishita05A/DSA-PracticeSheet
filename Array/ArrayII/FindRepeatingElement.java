@@ -3,13 +3,13 @@ import java.util.*;
 
 public class FindRepeatingElement {
     static List<Integer> repeatingElement(int[] arr){
-        HashSet<Integer> mp = new HashSet<>();
+       HashMap<Integer,Integer> mp = new HashMap<>();
         List<Integer> ans = new ArrayList<>();
         for(int i = 0;i<arr.length;i++){
-            if(mp.contains(arr[i]) && !ans.contains(arr[i])){
-                ans.add(arr[i]);
-            }
-            else  mp.add(arr[i]);
+            mp.put(arr[i], mp.getOrDefault(arr[i], 0)+1);
+        }
+        for(var e : mp.entrySet()){
+            if(e.getValue()>1) ans.add(e.getKey());
         }
         return ans;
 
