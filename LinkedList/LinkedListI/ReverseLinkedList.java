@@ -1,6 +1,6 @@
-package LinkedList;
+package LinkedList.LinkedListI;
 
-public class DeleteNodeInLL {
+public class ReverseLinkedList {
     public static class Node {
         int val;
         Node next;
@@ -17,12 +17,20 @@ public class DeleteNodeInLL {
         }
         System.out.println();
     }
-    static void delete(Node node){
-        node.val = node.next.val;
-        node.next = node.next.next;
+    static Node reverse(Node head){
+        Node curr = head;
+        Node prev = null;
+        Node after = head;
+        while(curr != null){
+            after = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = after;
+        }
+        return prev;
     }
     public static void main(String[] args) {
-        Node a = new Node(1);
+         Node a = new Node(1);
         Node b = new Node(2);
         Node c = new Node(3);
         Node d = new Node(4);
@@ -30,10 +38,8 @@ public class DeleteNodeInLL {
         b.next = c;
         c.next = d;
         display(a);
-        delete(c);
-        
-        display(a);
-
+        Node newHead = reverse(a);
+        display(newHead);
     }
     
 }

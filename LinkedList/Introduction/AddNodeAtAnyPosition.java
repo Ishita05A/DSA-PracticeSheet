@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.Introduction;
 
 public class AddNodeAtAnyPosition {
     public static class Node {

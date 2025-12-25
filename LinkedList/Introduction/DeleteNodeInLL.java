@@ -1,6 +1,6 @@
-package LinkedList;
+package LinkedList.Introduction;
 
-public class CountNodeinLL {
+public class DeleteNodeInLL {
     public static class Node {
         int val;
         Node next;
@@ -17,17 +17,12 @@ public class CountNodeinLL {
         }
         System.out.println();
     }
-    static int countNodes(Node head){
-        int count = 0;
-        Node temp = head;
-        while(temp != null){
-            count++;
-            temp = temp.next;
-        }
-        return count;
+    static void delete(Node node){
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
     public static void main(String[] args) {
-         Node a = new Node(1);
+        Node a = new Node(1);
         Node b = new Node(2);
         Node c = new Node(3);
         Node d = new Node(4);
@@ -35,7 +30,10 @@ public class CountNodeinLL {
         b.next = c;
         c.next = d;
         display(a);
-        System.out.println(countNodes(a));
+        delete(c);
+        
+        display(a);
+
     }
     
 }
