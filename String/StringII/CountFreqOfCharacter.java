@@ -5,8 +5,9 @@ import java.util.TreeMap;
 
 public class CountFreqOfCharacter {
     static String countFreq(String str){
+        if(str == null || str.length() == 0) return "";
         TreeMap<Character,Integer> mp = new TreeMap<>();
-        StringBuilder s = new StringBuilder("");
+        StringBuilder s = new StringBuilder();
         for(int i = 0;i<str.length();i++){
             char ch = str.charAt(i);
             mp.put(ch, mp.getOrDefault(ch, 0)+1);

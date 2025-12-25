@@ -4,8 +4,27 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MaximumOccuringCharacter {
+
+    static Character calculate_frequency_optimized(String s){
+        if(s == null || s.length() == 0) return null;
+        int[] freq = new int[256];
+        char ans = ' ';
+        int max = 0;
+        for(int i = 0;i<s.length();i++){
+            char ch = s.charAt(i);
+            freq[ch]++;
+        }
+        for(int i = 0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(freq[ch]>max){
+                max = freq[ch];
+                ans = ch;
+            }
+        }
+        return ans;
+    }
     static Character calculate_frequency(String s){
-        if(s.length()==0 || s==null) return null;
+        if(s==null || s.length()==0) return null;
         HashMap<Character,Integer> mp = new HashMap<>();
         
         for(int i = 0;i<s.length();i++){
@@ -27,6 +46,7 @@ public class MaximumOccuringCharacter {
         System.out.println("Enter String");
         String str = sc.nextLine();
         System.out.println(calculate_frequency(str));
+        System.out.println(calculate_frequency_optimized(str));
         sc.close();
     }
     
